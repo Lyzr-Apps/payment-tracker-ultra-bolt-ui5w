@@ -1,0 +1,40 @@
+{
+  "agent_name": "SMS Notification Agent",
+  "agent_id": "699ecd2a09b9e338d300ed12",
+  "description": "Sends concise SMS-style payment reminder notifications to overdue users, with tone matching the escalation level.",
+  "agent_type": "json",
+  "accessor": "json",
+  "has_module_outputs": false,
+  "response_format": {
+    "type": "json_schema",
+    "json_schema": {
+      "name": "AgentResponse",
+      "strict": true,
+      "schema": {
+        "type": "object",
+        "properties": {
+          "results": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "user_name": { "type": "string" },
+                "phone": { "type": "string" },
+                "status": { "type": "string" },
+                "sms_text": { "type": "string" },
+                "tone_level": { "type": "string" },
+                "queued_at": { "type": "string" }
+              },
+              "required": ["user_name", "phone", "status", "sms_text", "tone_level", "queued_at"],
+              "additionalProperties": false
+            }
+          },
+          "total_queued": { "type": "number" },
+          "total_failed": { "type": "number" }
+        },
+        "required": ["results", "total_queued", "total_failed"],
+        "additionalProperties": false
+      }
+    }
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "app_name": "Payment Reminder Agent",
+  "agents": {
+    "tone_calibration_agent": {
+      "agent_id": "699ecd0609b9e338d300ed04",
+      "name": "Tone Calibration Agent",
+      "agent_type": "json",
+      "model": "gpt-4.1",
+      "provider": "openai",
+      "temperature": 0.6,
+      "top_p": 0.95,
+      "tools": [],
+      "has_voice": false,
+      "has_image_output": false,
+      "has_file_output": false
+    },
+    "email_reminder_agent": {
+      "agent_id": "699ecd3c86db8df09a1d9653",
+      "name": "Email Reminder Agent",
+      "agent_type": "json",
+      "model": "gpt-4.1",
+      "provider": "openai",
+      "temperature": 0.3,
+      "top_p": 1,
+      "tools": [
+        {
+          "tool_name": "gmail",
+          "tool_source": "composio",
+          "action_names": ["GMAIL_SEND_EMAIL"],
+          "persist_auth": true
+        }
+      ],
+      "has_voice": false,
+      "has_image_output": false,
+      "has_file_output": false
+    },
+    "sms_notification_agent": {
+      "agent_id": "699ecd2a09b9e338d300ed12",
+      "name": "SMS Notification Agent",
+      "agent_type": "json",
+      "model": "gpt-4.1",
+      "provider": "openai",
+      "temperature": 0.3,
+      "top_p": 1,
+      "tools": [],
+      "has_voice": false,
+      "has_image_output": false,
+      "has_file_output": false
+    },
+    "voice_reminder_agent": {
+      "agent_id": "699ecd2a86db8df09a1d9635",
+      "name": "Voice Reminder Agent",
+      "agent_type": "voice",
+      "model": "gpt-4.1",
+      "provider": "openai",
+      "temperature": 0.4,
+      "top_p": 0.95,
+      "tools": [],
+      "has_voice": true,
+      "has_image_output": false,
+      "has_file_output": false,
+      "voice_config": {
+        "initiator": "human",
+        "message": "",
+        "language": "English",
+        "voice": "sage"
+      }
+    }
+  },
+  "agent_ids": [
+    "699ecd0609b9e338d300ed04",
+    "699ecd3c86db8df09a1d9653",
+    "699ecd2a09b9e338d300ed12",
+    "699ecd2a86db8df09a1d9635"
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "agent_name": "Email Reminder Agent",
+  "agent_id": "699ecd3c86db8df09a1d9653",
+  "description": "Sends escalation-toned payment reminder emails to overdue users via Gmail using pre-generated message content from the Tone Calibration Agent.",
+  "agent_type": "json",
+  "accessor": "json",
+  "has_module_outputs": false,
+  "response_format": {
+    "type": "json_schema",
+    "json_schema": {
+      "name": "AgentResponse",
+      "strict": true,
+      "schema": {
+        "type": "object",
+        "properties": {
+          "results": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "user_name": { "type": "string" },
+                "email": { "type": "string" },
+                "status": { "type": "string" },
+                "message": { "type": "string" },
+                "tone_level": { "type": "string" },
+                "sent_at": { "type": "string" }
+              },
+              "required": ["user_name", "email", "status", "message", "tone_level", "sent_at"],
+              "additionalProperties": false
+            }
+          },
+          "total_sent": { "type": "number" },
+          "total_failed": { "type": "number" }
+        },
+        "required": ["results", "total_sent", "total_failed"],
+        "additionalProperties": false
+      }
+    }
+  }
+}

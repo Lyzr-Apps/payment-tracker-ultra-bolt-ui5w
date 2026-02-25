@@ -1,0 +1,23 @@
+TASK_COMPLETED
+Payment Reminder Agent UI - Complete Build
+Generated: 2026-02-25
+
+Files written:
+- /app/nextjs-project/app/globals.css (Heritage Dark theme)
+- /app/nextjs-project/app/page.tsx (Complete 5-screen application)
+
+Features:
+1. Dashboard - Metric cards, sortable/filterable payment table, Generate Reminders CTA
+2. Add Payment - CRUD form for payment records with auto tone assignment
+3. Review Reminders - Email/SMS/Voice tabs with bulk select, editable messages, send actions
+4. Reminder History - User list with timeline view showing sent reminders
+5. Settings - Escalation rule editor and default template management
+6. Voice Overlay - Full WebSocket voice agent with mic capture and audio playback
+7. Agent Status Footer - Shows all 4 agents with activity indicator
+8. Sample Data Toggle - Pre-fills all sections with realistic data
+
+Agents integrated:
+- Tone Calibration (699ecd0609b9e338d300ed04) - JSON agent via callAIAgent
+- Email Reminder (699ecd3c86db8df09a1d9653) - JSON agent via callAIAgent
+- SMS Notification (699ecd2a09b9e338d300ed12) - JSON agent via callAIAgent
+- Voice Reminder (699ecd2a86db8df09a1d9635) - Voice agent via WebSocket

@@ -1,0 +1,36 @@
+{
+  "agent_name": "SMS Notification Agent",
+  "agent_id": "699ecd2a09b9e338d300ed12",
+  "description": "Sends concise SMS-style payment reminder notifications to overdue users, with tone matching the escalation level. Uses simulated SMS delivery since custom SMS API requires manual setup.",
+  "agent_type": "json",
+  "accessor": "result",
+  "auto_generated": true,
+  "response_schema": {
+    "results": [
+      {
+        "user_name": "string",
+        "phone": "string",
+        "status": "string",
+        "sms_text": "string",
+        "tone_level": "string",
+        "queued_at": "string"
+      }
+    ],
+    "total_queued": "number",
+    "total_failed": "number"
+  },
+  "example_response": {
+    "results": [
+      {
+        "user_name": "sample string",
+        "phone": "sample string",
+        "status": "sample string",
+        "sms_text": "sample string",
+        "tone_level": "sample string",
+        "queued_at": "sample string"
+      }
+    ],
+    "total_queued": 0,
+    "total_failed": 0
+  }
+}

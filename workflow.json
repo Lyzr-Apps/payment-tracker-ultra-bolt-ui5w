@@ -1,0 +1,87 @@
+{
+  "workflow": {
+    "name": "Payment Reminder Agent",
+    "description": "Multi-channel payment reminder system with tone escalation based on days overdue. Generates and delivers reminders via email, SMS, and voice channels.",
+    "nodes": [
+      {
+        "id": "input_node",
+        "type": "Input",
+        "label": "Payment Records Input",
+        "nodeCategory": "input"
+      },
+      {
+        "id": "tone_calibration_agent",
+        "type": "Agent",
+        "label": "Tone Calibration Agent",
+        "nodeCategory": "agent",
+        "agent_id": "699ecd0609b9e338d300ed04",
+        "agent_type": "json",
+        "model": "gpt-4.1",
+        "provider": "openai",
+        "temperature": 0.6,
+        "top_p": 0.95
+      },
+      {
+        "id": "email_reminder_agent",
+        "type": "Agent",
+        "label": "Email Reminder Agent",
+        "nodeCategory": "agent",
+        "agent_id": "699ecd3c86db8df09a1d9653",
+        "agent_type": "json",
+        "model": "gpt-4.1",
+        "provider": "openai",
+        "temperature": 0.3,
+        "top_p": 1,
+        "tools": ["gmail:GMAIL_SEND_EMAIL"]
+      },
+      {
+        "id": "sms_notification_agent",
+        "type": "Agent",
+        "label": "SMS Notification Agent",
+        "nodeCategory": "agent",
+        "agent_id": "699ecd2a09b9e338d300ed12",
+        "agent_type": "json",
+        "model": "gpt-4.1",
+        "provider": "openai",
+        "temperature": 0.3,
+        "top_p": 1
+      },
+      {
+        "id": "voice_reminder_agent",
+        "type": "Agent",
+        "label": "Voice Reminder Agent",
+        "nodeCategory": "agent",
+        "agent_id": "699ecd2a86db8df09a1d9635",
+        "agent_type": "voice",
+        "model": "gpt-4.1",
+        "provider": "openai",
+        "temperature": 0.4,
+        "top_p": 0.95,
+        "voice_config": {
+          "initiator": "human",
+          "message": "",
+          "language": "English",
+          "voice": "sage"
+        }
+      }
+    ],
+    "edges": [
+      {
+        "source": "input_node",
+        "target": "tone_calibration_agent"
+      },
+      {
+        "source": "tone_calibration_agent",
+        "target": "email_reminder_agent"
+      },
+      {
+        "source": "tone_calibration_agent",
+        "target": "sms_notification_agent"
+      },
+      {
+        "source": "tone_calibration_agent",
+        "target": "voice_reminder_agent"
+      }
+    ]
+  }
+}

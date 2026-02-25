@@ -1,0 +1,63 @@
+{
+  "agent_name": "Tone Calibration Agent",
+  "agent_id": "699ecd0609b9e338d300ed04",
+  "description": "Analyzes days overdue for each payment record and generates appropriately toned reminder messages for email, SMS, and voice channels.",
+  "agent_type": "json",
+  "accessor": "json",
+  "has_module_outputs": false,
+  "response_format": {
+    "type": "json_schema",
+    "json_schema": {
+      "name": "AgentResponse",
+      "strict": true,
+      "schema": {
+        "type": "object",
+        "properties": {
+          "reminders": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "user_name": { "type": "string" },
+                "email": { "type": "string" },
+                "phone": { "type": "string" },
+                "amount_due": { "type": "string" },
+                "due_date": { "type": "string" },
+                "days_overdue": { "type": "number" },
+                "tone_level": { "type": "string" },
+                "email_subject": { "type": "string" },
+                "email_body": { "type": "string" },
+                "sms_message": { "type": "string" },
+                "voice_script": { "type": "string" }
+              },
+              "required": ["user_name", "email", "phone", "amount_due", "due_date", "days_overdue", "tone_level", "email_subject", "email_body", "sms_message", "voice_script"],
+              "additionalProperties": false
+            }
+          },
+          "summary": {
+            "type": "object",
+            "properties": {
+              "total_records": { "type": "number" },
+              "tone_breakdown": {
+                "type": "object",
+                "properties": {
+                  "soft": { "type": "number" },
+                  "moderate": { "type": "number" },
+                  "firm": { "type": "number" },
+                  "urgent": { "type": "number" },
+                  "final_notice": { "type": "number" }
+                },
+                "required": ["soft", "moderate", "firm", "urgent", "final_notice"],
+                "additionalProperties": false
+              }
+            },
+            "required": ["total_records", "tone_breakdown"],
+            "additionalProperties": false
+          }
+        },
+        "required": ["reminders", "summary"],
+        "additionalProperties": false
+      }
+    }
+  }
+}

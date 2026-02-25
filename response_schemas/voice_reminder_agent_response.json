@@ -1,0 +1,8 @@
+{
+  "agent_name": "Voice Reminder Agent",
+  "agent_id": "699ecd2a86db8df09a1d9635",
+  "description": "Delivers a spoken payment reminder pop-up when an overdue user opens the web dashboard. The spoken message reflects the current escalation tone based on days overdue.",
+  "agent_type": "voice",
+  "accessor": "websocket",
+  "auto_generated": true
+}

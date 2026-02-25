@@ -1,0 +1,62 @@
+{
+  "agent_name": "Tone Calibration Agent",
+  "agent_id": "699ecd0609b9e338d300ed04",
+  "description": "Analyzes days overdue for each payment record and generates appropriately toned reminder messages for email, SMS, and voice channels. Tone ranges from soft/friendly (1-5 days) to moderate (6-10 days) to firm (11-15 days) to urgent (16-25 days) to final notice (25+ days).",
+  "agent_type": "json",
+  "accessor": "result",
+  "auto_generated": true,
+  "response_schema": {
+    "reminders": [
+      {
+        "user_name": "string",
+        "email": "string",
+        "phone": "string",
+        "amount_due": "string",
+        "due_date": "string",
+        "days_overdue": "number",
+        "tone_level": "string",
+        "email_subject": "string",
+        "email_body": "string",
+        "sms_message": "string",
+        "voice_script": "string"
+      }
+    ],
+    "summary": {
+      "total_records": "number",
+      "tone_breakdown": {
+        "soft": "number",
+        "moderate": "number",
+        "firm": "number",
+        "urgent": "number",
+        "final_notice": "number"
+      }
+    }
+  },
+  "example_response": {
+    "reminders": [
+      {
+        "user_name": "sample string",
+        "email": "sample string",
+        "phone": "sample string",
+        "amount_due": "sample string",
+        "due_date": "sample string",
+        "days_overdue": 0,
+        "tone_level": "sample string",
+        "email_subject": "sample string",
+        "email_body": "sample string",
+        "sms_message": "sample string",
+        "voice_script": "sample string"
+      }
+    ],
+    "summary": {
+      "total_records": 0,
+      "tone_breakdown": {
+        "soft": 0,
+        "moderate": 0,
+        "firm": 0,
+        "urgent": 0,
+        "final_notice": 0
+      }
+    }
+  }
+}
